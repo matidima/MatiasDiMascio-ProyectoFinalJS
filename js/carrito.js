@@ -122,20 +122,22 @@ btnTerminar.addEventListener('click', terminarCompra);
 function terminarCompra () {
     Swal.fire({
         title:'¿Desea confirmar la compra?',
-        icon:'warning',
+        icon:'question',
         showCancelButton: true,
         confirmButtonText: 'Sí, comprar',
         cancelButtonText: 'Cancelar',
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Listo',
-                    'Tu compra se realizo correctamente',
-                    'success'
-                  )
-                  setTimeout(function(){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Tu compra se realizo correctamente',
+                    showConfirmButton: true,
+                    timer: 2000
+                })
+                setTimeout(function(){
                     vaciarCarrito()
-                }, 2000);
+                }, 2500);
             }
         })
     }
